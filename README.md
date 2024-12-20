@@ -4,56 +4,56 @@
 
 ## We were responsible for writing the AI Agent. It's goal was to find the treasure before the human could.
 
-```### edited code begins\n",
-    "    for epoch in range(n_epoch):\n",
-    "        #    Agent_cell = randomly select a free cell\n",
-    "        agent_cell = np.random.randint(0, high=7, size=2)\n",
-    "    \n",
-    "        #    Reset the maze with agent set to above position\n",
-    "        qmaze.reset([0, 0])\n",
-    "        #    envstate = Environment.current_state\n",
-    "        envstate = qmaze.observe()\n",
-    "    \n",
-    "        # init\n",
-    "        loss = 0\n",
-    "        n_episodes = 0\n",
-    "    \n",
-    "        #        While state is not game over:\n",
-    "        #        previous_envstate = envstate\n",
-    "        #        Action = randomly choose action (left, right, up, down) either by exploration or by exploitation\n",
-    "    \n",
-    "        while qmaze.game_status() == 'not_over':\n",
-    "            previous_envstate = envstate\n",
-    "            valid_actions = qmaze.valid_actions()\n",
-    "            if np.random.rand() < epsilon:\n",
-    "                action = random.choice(valid_actions)\n",
-    "            else:\n",
-    "                action = np.argmax(experience.predict(envstate))\n",
-    "            \n",
-    "            #        envstate, reward, game_status = qmaze.act(action)        \n",
-    "            envstate, reward, game_status = qmaze.act(action)\n",
-    "            n_episodes += 1\n",
-    "            episode = [previous_envstate, action, reward, envstate, game_status]\n",
-    "            experience.remember(episode)\n",
-    "            \n",
-    "            inputs,targets = experience.get_data()\n",
-    "            history = model.fit(inputs, targets, epochs= 10, batch_size=12, verbose=0)\n",
-    "        \n",
-    "            loss = model.evaluate(inputs, targets)\n",
-    "        \n",
-    "            if episode [4] == \"win\":\n",
-    "                win_history.append(1)\n",
-    "                win_rate = sum(win_history) / len(win_history)\n",
-    "                break\n",
-    "                \n",
-    "            if episode [4] == 'lose':\n",
-    "                win_history.append(0)\n",
-    "                win_rate = sum(win_history) / len(win_history)\n",
-    "                break\n",
-    "                \n",
-    "            if win_rate > epsilon:\n",
-    "                print(\"win_rate is: \", win_rate)\n",
-    "    \n",
-    "    ###edited code ends\n",
-    "    \n",
-    ```
+    "   ``` 
+    "    ### edited code begins
+    "    for epoch in range(n_epoch):
+    "        #    Agent_cell = randomly select a free cell
+    "        agent_cell = np.random.randint(0, high=7, size=2)
+    "    
+    "        #    Reset the maze with agent set to above position
+    "        qmaze.reset([0, 0])
+    "        #    envstate = Environment.current_state
+    "        envstate = qmaze.observe()
+    "    
+    "        # init
+    "        loss = 0
+    "        n_episodes = 0
+    "    
+    "        #        While state is not game over:
+    "        #        previous_envstate = envstate
+    "        #        Action = randomly choose action (left, right, up, down) either by exploration or by exploitation
+    "    
+    "        while qmaze.game_status() == 'not_over':
+    "            previous_envstate = envstate
+    "            valid_actions = qmaze.valid_actions()
+    "            if np.random.rand() < epsilon:
+    "                action = random.choice(valid_actions)
+    "            else:
+    "                action = np.argmax(experience.predict(envstate))
+    "            
+    "            #        envstate, reward, game_status = qmaze.act(action)        
+    "            envstate, reward, game_status = qmaze.act(action)
+    "            n_episodes += 1
+    "            episode = [previous_envstate, action, reward, envstate, game_status]
+    "            experience.remember(episode)
+    "            
+    "            inputs,targets = experience.get_data()
+    "            history = model.fit(inputs, targets, epochs= 10, batch_size=12, verbose=0)
+    "        
+    "            loss = model.evaluate(inputs, targets)
+    "        
+    "            if episode [4] == \"win\":
+    "                win_history.append(1)
+    "                win_rate = sum(win_history) / len(win_history)
+    "                break
+    "                
+    "            if episode [4] == 'lose':
+    "                win_history.append(0)
+    "                win_rate = sum(win_history) / len(win_history)
+    "                break
+    "                
+    "            if win_rate > epsilon:
+    "                print(\"win_rate is: \", win_rate)
+    "    
+    "    ###edited code ends
+    "    ```
