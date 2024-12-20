@@ -4,7 +4,7 @@
 
 ## We were responsible for writing the AI Agent. It's goal was to find the treasure before the human could.
 
-'''### edited code begins\n",
+```### edited code begins\n",
     "    for epoch in range(n_epoch):\n",
     "        #    Agent_cell = randomly select a free cell\n",
     "        agent_cell = np.random.randint(0, high=7, size=2)\n",
@@ -56,4 +56,4 @@
     "    \n",
     "    ###edited code ends\n",
     "    \n",
-    '''
+    ```
