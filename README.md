@@ -1,8 +1,8 @@
 # CS-370
 
-## We were given two python files that were setting up aspects of the code and allowed us to reference parts of the code we had to write and allowed us to focus on the Agent AI to find the treasure. Those python files were the GameExperience.py and the TreasureMaze.py.
+### We were given two python files that were setting up aspects of the code and allowed us to reference parts of the code we had to write and allowed us to focus on the Agent AI to find the treasure. Those python files were the GameExperience.py and the TreasureMaze.py.
 
-## We were responsible for writing the AI Agent. It's goal was to find the treasure before the human could.
+### We were responsible for writing the AI Agent. It's goal was to find the treasure before the human could.
 
     "   ``` 
     "    ### edited code begins
